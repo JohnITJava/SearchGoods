@@ -1,6 +1,7 @@
 package com.SearchGoods.SearchGoods.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @Import(JpaConfiguration.class)
 @EnableWebMvc
-//@ComponentScan(basePackages = "com.SearchGoods.SearchGoods")
+//@ComponentScan(basePackages = "com.SearchGoods.SearchGoods.controller")
 public class AppConfig extends WebMvcConfigurerAdapter {
 
 

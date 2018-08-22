@@ -14,7 +14,8 @@ public class Goods{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "prod_id")
+    private Long prod_id;
 
     @NotBlank
     private String name;
@@ -28,7 +29,7 @@ public class Goods{
                     CascadeType.MERGE
             })
     @JoinTable(name = "good_cat",
-            joinColumns = { @JoinColumn(name = "good_id") },
+            joinColumns = { @JoinColumn(name = "prod_id") },
             inverseJoinColumns = { @JoinColumn(name = "cat_id") })
     private Set<Categories> categories = new HashSet<>();
 
@@ -40,12 +41,12 @@ public class Goods{
         this.descr = descr;
     }
 
-    public Long getId() {
-        return id;
+    public Long getProd_id() {
+        return prod_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProd_id(Long prod_id) {
+        this.prod_id = prod_id;
     }
 
     public String getName() {
@@ -71,6 +72,4 @@ public class Goods{
     public void setCategories(Set<Categories> categories) {
         this.categories = categories;
     }
-
-
 }

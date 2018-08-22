@@ -27,18 +27,18 @@ public class GoodController {
         return goodsRepository.save(goods);
     }
 
-    @GetMapping("/goods/{id}")
-    public Goods getGoodsById(@PathVariable(value = "id") Long goodId) {
+    @GetMapping("/goods/{prod_id}")
+    public Goods getGoodsById(@PathVariable(value = "prod_id") Long goodId) {
         return goodsRepository.findById(goodId)
-                .orElseThrow(() -> new ResourceNotFoundException("Good", "id", goodId));
+                .orElseThrow(() -> new ResourceNotFoundException("Good", "prod_id", goodId));
     }
 
-    @PutMapping("/goods/{id}")
-    public Goods updateGood(@PathVariable(value = "id") Long goodId,
+    @PutMapping("/goods/{prod_id}")
+    public Goods updateGood(@PathVariable(value = "prod_id") Long goodId,
                            @Valid @RequestBody Goods goodDetails) {
 
         Goods goods = goodsRepository.findById(goodId)
-                .orElseThrow(() -> new ResourceNotFoundException("Good", "id", goodId));
+                .orElseThrow(() -> new ResourceNotFoundException("Good", "prod_id", goodId));
 
         goods.setName(goodDetails.getName());
         goods.setDescr(goodDetails.getDescr());
@@ -47,10 +47,10 @@ public class GoodController {
         return updatedGood;
     }
 
-    @DeleteMapping("/goods/{id}")
-    public ResponseEntity<?> deleteGood(@PathVariable(value = "id") Long goodId) {
+    @DeleteMapping("/goods/{prod_id}")
+    public ResponseEntity<?> deleteGood(@PathVariable(value = "prod_id") Long goodId) {
         Goods goods = goodsRepository.findById(goodId)
-                .orElseThrow(() -> new ResourceNotFoundException("Good", "id", goodId));
+                .orElseThrow(() -> new ResourceNotFoundException("Good", "prod_id", goodId));
 
         goodsRepository.delete(goods);
 

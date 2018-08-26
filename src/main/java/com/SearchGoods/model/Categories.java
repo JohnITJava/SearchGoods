@@ -1,5 +1,6 @@
 package com.SearchGoods.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class Categories {
                     CascadeType.MERGE
             },
             mappedBy = "categories")
+    @JsonBackReference
     private Set<Goods> goods = new HashSet<>();
 
     public Categories() {

@@ -39,9 +39,10 @@ public class Goods{
     public Goods() {
     }
 
-    public Goods(String name, String descr, Categories cats) {
+    public Goods(String name, String descr, Set<Categories> cats) {
         this.name = name;
         this.descr = descr;
+        //this.cats = cats;
     }
 
     public Long getProd_id() {
